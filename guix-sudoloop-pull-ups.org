@@ -1,8 +1,0 @@
-*NOTE: This package is in very early stages. I'm using it regularly, but many improvements need yet to be made, especially in being more extensible in various ways.*
-
-* Guix Sudoloop Pull Ups
-Guix pull and update with sudoloop. Elisp code which creates and runs shell scripts to more efficiently update Guix with sudoloop (for =guix system reconfigure=) and multiple attempts to counteract transient timeouts/failure, so full guix updates are less painful.
-
-** Notes
-*** sudoloop issue/warning/possible dangers
-- see: https://github.com/Jguer/yay/issues/147#issuecomment-366024535
