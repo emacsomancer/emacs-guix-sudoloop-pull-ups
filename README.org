@@ -14,5 +14,8 @@ add to =init.el=
 #+end_src
 
 ** Notes
-*** sudoloop issue/warning/possible dangers
+*** Sudoloop
+The sudoloop'ing part of the shell code is taken pretty much directly from Clar Fon's implementation [https://codeberg.org/clarfonthey/sudoloop] (licensed under CC0 licence).
+
+**** sudoloop issue/warning/possible dangers
 - see: https://github.com/Jguer/yay/issues/147#issuecomment-366024535
