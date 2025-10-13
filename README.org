@@ -1,7 +1,7 @@
 *NOTE: This package is in very early stages. I'm using it regularly, but many improvements need yet to be made, especially in being more extensible in various ways.*
 
 * Guix Sudoloop Pull Ups
-Guix pull and update with sudoloop. Elisp code which creates and runs shell scripts to more efficiently update Guix with sudoloop (for =guix system reconfigure=) and multiple attempts to counteract transient timeouts/failure, so full guix updates are less painful.
+Guix pull and update with sudoloop. Elisp code which creates and runs shell scripts to more efficiently update Guix with sudoloop (for =guix system reconfigure=, to stop a full update process from hanging in the middle waiting the user to enter their sudo password) and multiple attempts at each action (to counteract transient timeouts/failure). In general, to make doing full guix updates (e.g., a sequence of ~guix pull~, ~guix package -u~, ~sudo guix system reconfigure ...~, ~guix home reconfigure ...~) are less painful.
 
 * How to Install
 Easiest if you're using Emacs 30 or above is the [[https://git.savannah.gnu.org/cgit/emacs.git/commit/?id=2ce279680bf9c1964e98e2aa48a03d6675c386fe][built-in]] ~vc-use-package~. If you use an alternative/supplement package manager already, you probably know what you're doing. Otherwise:
