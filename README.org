@@ -4,18 +4,61 @@
 Guix pull and update with sudoloop. Elisp code which creates and runs shell scripts to more efficiently update Guix with sudoloop (for =guix system reconfigure=) and multiple attempts to counteract transient timeouts/failure, so full guix updates are less painful.
 
 * How to Install
-[to be filled out more fully...]
-** With Elpaca
-add to =init.el=
+Easiest if you're using Emacs 30 or above is the [[https://git.savannah.gnu.org/cgit/emacs.git/commit/?id=2ce279680bf9c1964e98e2aa48a03d6675c386fe][built-in]] ~vc-use-package~. If you use an alternative/supplement package manager already, you probably know what you're doing. Otherwise:
 
+*** Manual
+Clone this repo or copy the ~guix-sudoloop-pull-ups.el~ file somewhere and load it via =init.el=, e.g., copy to =~/.emacs.d/lisp/guix-sudoloop-pull-ups/= and put in your =init.el=:
 #+begin_src elisp
-(use-package guix-sudoloop-pull-ups
-  :ensure (:host github :repo "emacsomancer/emacs-guix-sudoloop-pull-ups"))
+(add-to-list 'load-path
+             "~/.emacs.d/lisp/guix-sudoloop-pull-ups")
+  (require 'pdffontetc)
 #+end_src
 
-** Notes
-*** Sudoloop
+*** vc-use-package [built-in]
+Included in Emacs 30+. Probably the easiest method:
+#+begin_src elisp
+(use-package guix-sudoloop-pull-ups
+  :vc (guix-sudoloop-pull-ups :url "https://github.com/emacsomancer/guix-sudoloop-pull-ups"
+                    :branch "main")
+  :ensure t)
+#+end_src
+*** vc-use-package [separately packaged]
+The [[https://github.com/slotThe/vc-use-package][non-built-in version]] of vc-use-package uses slightly different syntax:
+#+begin_src elisp
+(use-package guix-sudoloop-pull-ups
+  :vc (:fetcher github :repo "emacsomancer/guix-sudoloop-pull-ups")
+  :ensure t)
+#+end_src
+*** elpaca
+With [[https://github.com/progfolio/elpaca][elpaca]]:
+#+begin_src elisp
+(use-package guix-sudoloop-pull-ups
+  :ensure (:host github :repo "emacsomancer/guix-sudoloop-pull-ups"))
+#+end_src
+*** straight
+With [[https://github.com/radian-software/straight.el][straight]]:
+#+begin_src elisp
+(use-package guix-sudoloop-pull-ups
+  :straight (guix-sudoloop-pull-ups :type git :host github :repo "emacsomancer/guix-sudoloop-pull-ups")
+  :ensure t)
+#+end_src
+*** quelpa
+With [[https://github.com/quelpa/quelpa][quelpa]]:
+#+begin_src elisp
+(use-package guix-sudoloop-pull-ups
+  :quelpa (guix-sudoloop-pull-ups :fetcher github :repo "emacsomancer/guix-sudoloop-pull-ups")
+  :ensure t)
+#+end_src
+** With Elpaca
+add to =init.el=:
+#+begin_src elisp
+(use-package guix-sudoloop-pull-ups
+  :ensure (:host github :repo "emacsomancer/guix-sudoloop-pull-ups"))
+#+end_src
+
+* Notes
+** Sudoloop
 The sudoloop'ing part of the shell code is taken pretty much directly from Clar Fon's implementation [https://codeberg.org/clarfonthey/sudoloop] (licensed under CC0 licence).
 
-**** sudoloop issue/warning/possible dangers
+*** sudoloop issue/warning/possible dangers
 - see: https://github.com/Jguer/yay/issues/147#issuecomment-366024535
