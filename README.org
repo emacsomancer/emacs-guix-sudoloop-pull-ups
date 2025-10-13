@@ -62,3 +62,5 @@ The sudoloop'ing part of the shell code is taken pretty much directly from Clar 
 
 *** sudoloop issue/warning/possible dangers
 - see: https://github.com/Jguer/yay/issues/147#issuecomment-366024535
+** Discussions
+- posted to r/GUIX: https://www.reddit.com/r/GUIX/comments/1o57i8k/guix_sudoloop_pullups_a_workinprogress_for_smooth/
