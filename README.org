@@ -11,7 +11,7 @@ Clone this repo or copy the ~guix-sudoloop-pull-ups.el~ file somewhere and load 
 #+begin_src elisp
 (add-to-list 'load-path
              "~/.emacs.d/lisp/guix-sudoloop-pull-ups")
-  (require 'pdffontetc)
+  (require 'guix-sudoloop-pull-ups)
 #+end_src
 
 *** vc-use-package [built-in]
